@@ -13,6 +13,8 @@ class Server {
     this.middlewares();
     //routes app
     this.routes();
+    //sockets
+    this.sockets();
   }
 
   middlewares() {
@@ -22,6 +24,14 @@ class Server {
     this.app.use(express.static("public"));
   }
   routes() {}
+
+  sockets() {
+    this.io.on("connection", (socket) => {
+      socket.on("send-message", (payload) => {
+        console.log(payload);
+      });
+    });
+  }
 
   listen() {
     this.server.listen(this.PORT, () => {
