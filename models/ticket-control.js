@@ -42,7 +42,7 @@ class TicketControl {
     const ticket = new Ticket(this.last, null);
     this.tickets.push(ticket);
     this.saveDB();
-    return 'Ticket' + ticket.number;
+    return 'Ticket ' + ticket.number;
   }
 
   attendTicket(desktop) {
